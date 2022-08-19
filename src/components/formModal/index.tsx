@@ -28,6 +28,7 @@ const FormModal = ({ label = 'Cadastrar', user, open, onClose }:IForm) => {
     boxShadow: '4px 4px 4px #22305A05'
   };
   const initialValues = {
+    id: user?.id? user.id:0,
     nome: user?.nome ? user.nome : '',
     email: user?.email ? user.email : '',
     telefone: user?.telefone ? user.telefone : '',
@@ -50,7 +51,7 @@ const FormModal = ({ label = 'Cadastrar', user, open, onClose }:IForm) => {
       .required('Campo obrigatório')
   });
   const handleRegister = (values:IUser) => {
-    let newID: number | string | undefined = 0;
+    let newID: any= 0;
     const dataContratacao = values.dataContratacao
       .split('-')
       .reverse()
