@@ -12,13 +12,17 @@ import TableRow from '@mui/material/TableRow';
 import { useContext, useState} from 'react';
 import { MainContext } from '../../Provider';
 import FormModal from '../formModal';
+import InfoModal from '../infoModal';
 
 const TableEmployees = () => {
   const { users, setUsers } = useContext(MainContext);
-  const [isOpen, setIsOpen] = useState<boolean>(false)
   const [userData, setUserData] = useState([])
+  const [isOpen, setIsOpen] = useState<boolean>(false)
   const handleOpenModal = () =>setIsOpen(true)
   const handleCloseModal = () =>setIsOpen(false)
+  const [isOpenInfo, setIsOpenInfo] = useState<boolean>(false)
+  const handleOpenModalInfo = () =>setIsOpenInfo(true)
+  const handleCloseModalInfo = () =>setIsOpenInfo(false)
 
   const columns = [
     { id: 'nome', label: 'Nome', minWidth: 150 },
@@ -48,6 +52,7 @@ const TableEmployees = () => {
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden' }}>
       <FormModal label='Atualizar' user={userData} open={isOpen} onClose={handleCloseModal}/>
+      <InfoModal openInfo={isOpenInfo} onCloseInfo={handleCloseModalInfo}/>
       <TableContainer sx={{ maxHeight: 440 }}>
         <Table stickyHeader>
           <TableHead>
@@ -65,7 +70,7 @@ const TableEmployees = () => {
                 <TableCell align="center">{item.nome}</TableCell>
                 <TableCell align="center">{item.email}</TableCell>
                 <TableCell align="center">{item.telefone}</TableCell>
-                <TableCell align="center">{item.salario}</TableCell>
+                <TableCell align="center">R$ {item.salario}</TableCell>
                 <TableCell align="center">{item.dataContratacao}</TableCell>
                 <TableCell align="center">
                   <MenuItem 
@@ -74,7 +79,9 @@ const TableEmployees = () => {
                     <ModeIcon />
                     Editar
                   </MenuItem>
-                  <MenuItem sx={{ gap:1 , display:'flex', justifyContent:'center'}}>
+                  <MenuItem
+                  onClick={handleOpenModalInfo}
+                  sx={{ gap:1 , display:'flex', justifyContent:'center'}}>
                     <VisibilityIcon />
                     Exibir
                   </MenuItem>
