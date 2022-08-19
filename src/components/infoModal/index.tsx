@@ -1,7 +1,14 @@
 import { Button, Grid, Modal, Paper, TextField, Typography } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { IUser } from '../../Provider';
 
-const InfoModal = ({ user, openInfo, onCloseInfo }) => {
+interface IInfo{
+  user: IUser,
+  openInfo: boolean,
+  onCloseInfo: Function
+}
+
+const InfoModal = ({ user, openInfo, onCloseInfo }:IInfo) => {
   const paperStyle = {
     
     position: 'absolute',

@@ -6,7 +6,15 @@ import { Button, Grid, Modal, Paper, TextField } from '@mui/material';
 import { IUser, MainContext } from '../../Provider';
 import { useContext } from 'react';
 
-const FormModal = ({ label = 'Cadastrar', user, open, onClose }) => {
+interface IForm{
+  label?: string,
+  user?: IUser,
+  open: boolean,
+  onClose: Function
+}
+
+
+const FormModal = ({ label = 'Cadastrar', user, open, onClose }:IForm) => {
   const { users, setUsers } = useContext<any>(MainContext);
   const paperStyle = {
     overflow: 'auto',

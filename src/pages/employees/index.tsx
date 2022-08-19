@@ -1,5 +1,5 @@
 import { Box, Button } from '@mui/material'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import FormModal from '../../components/formModal'
 import TableEmployees from '../../components/tableEmployees'
 
