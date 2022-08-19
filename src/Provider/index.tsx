@@ -1,9 +1,17 @@
 import { createContext, useState } from "react";
 
 export const MainContext = createContext({});
+export interface IUser{
+  id: number,
+  nome: string
+  email:string,
+  telefone: string,
+  salario: string
+  dataContratacao: string
+}
 
 export function MainProvider({children}:any){
-  const [users, setUsers]= useState([
+  const [users, setUsers]= useState<IUser[]>([
     {
       id: 1,
       nome: 'Victor',

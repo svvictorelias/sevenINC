@@ -15,7 +15,7 @@ import FormModal from '../formModal';
 import InfoModal from '../infoModal';
 
 const TableEmployees = () => {
-  const { users, setUsers } = useContext(MainContext);
+  const { users, setUsers } = useContext<any>(MainContext);
   const [userData, setUserData] = useState([])
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const handleOpenModal = () =>setIsOpen(true)

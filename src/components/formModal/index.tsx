@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 import SendIcon from '@mui/icons-material/Send';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Button, Grid, Modal, Paper, TextField } from '@mui/material';
-import { MainContext } from '../../Provider';
+import { IUser, MainContext } from '../../Provider';
 import { useContext } from 'react';
 const FormModal = ({ label = 'Cadastrar', user, open, onClose }) => {
   const { users, setUsers } = useContext(MainContext);

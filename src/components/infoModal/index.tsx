@@ -1,10 +1,9 @@
 import { Button, Grid, Modal, Paper, TextField, Typography } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import React from 'react';
 
 const InfoModal = ({ user, openInfo, onCloseInfo }) => {
   const paperStyle = {
-    overflow: 'auto',
+    
     position: 'absolute',
     top: '50%',
     left: '50%',
@@ -36,7 +35,7 @@ const InfoModal = ({ user, openInfo, onCloseInfo }) => {
           <TextField fullWidth disabled={true} label={user.telefone} />
           </Grid>
           <Grid item xs={6}>
-          <Typography component="p">Salário</Typography>
+          <Typography component="p">Salário(R$)</Typography>
             <TextField fullWidth disabled={true} label={user.salario} />
           </Grid>
           <Grid item xs={6}>
