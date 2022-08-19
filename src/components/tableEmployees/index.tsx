@@ -48,11 +48,15 @@ const TableEmployees = () => {
     setUserData(item)
     handleOpenModal()
   }
+  const handleShow = (item)=>{
+    setUserData(item)
+    handleOpenModalInfo()
+  }
 
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden' }}>
       <FormModal label='Atualizar' user={userData} open={isOpen} onClose={handleCloseModal}/>
-      <InfoModal openInfo={isOpenInfo} onCloseInfo={handleCloseModalInfo}/>
+      <InfoModal user={userData} openInfo={isOpenInfo} onCloseInfo={handleCloseModalInfo}/>
       <TableContainer sx={{ maxHeight: 440 }}>
         <Table stickyHeader>
           <TableHead>
@@ -80,7 +84,7 @@ const TableEmployees = () => {
                     Editar
                   </MenuItem>
                   <MenuItem
-                  onClick={handleOpenModalInfo}
+                  onClick={()=>handleShow(item)}
                   sx={{ gap:1 , display:'flex', justifyContent:'center'}}>
                     <VisibilityIcon />
                     Exibir
