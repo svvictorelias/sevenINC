@@ -10,18 +10,28 @@ import MenuIcon from '@mui/icons-material/Menu';
 import DeleteIcon from '@mui/icons-material/Delete';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import ModeIcon from '@mui/icons-material/Mode';
-
 import TableHead from '@mui/material/TableHead';
-import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import { useState } from 'react';
-import FormModal from '../formModal';
+import { useContext, useEffect, useState } from 'react';
+import { MainContext } from '../../Provider';
 
 const TableEmployees = () => {
- 
+  const { users } = useContext(MainContext);
+  const [rows, setRows] = useState();
+  useEffect(() => {
+    setRows(
+      users?.map(user => ({
+        id: user.id,
+        nome: user.nome,
+        email: user.email,
+        telefone: user.telefone,
+        salario: user.salario,
+        dataContratacao: user.dataContratacao
+      }))
+    );
+  }, [users]);
+
   const [visibleButton, setVisibleButton] = useState<null | HTMLElement>(null);
-
-
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setVisibleButton(event.currentTarget);
@@ -41,35 +51,9 @@ const TableEmployees = () => {
       minWidth: 30
     }
   ];
-  const rows = [
-    {
-      id: 1,
-      nome: 'Victor',
-      email: 'teste@teste.com',
-      telefone: '111111111',
-      salario: 'R$3998.50',
-      dataContratacao: '11/11/2022'
-    },
-    {
-      id: 2,
-      nome: 'Victor Wagner Joseph Elias',
-      email: 'teste@teste.comsasda assadasdasd sad',
-      telefone: '111111111',
-      salario: 'R$3998.50',
-      dataContratacao: '11/11/2022'
-    },
-    {
-      id: 3,
-      nome: 'Victor',
-      email: 'teste@teste.com',
-      telefone: '111111111',
-      salario: 'R$3998.50',
-      dataContratacao: '11/11/2022'
-    }
-  ];
+
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-      
       <TableContainer sx={{ maxHeight: 440 }}>
         <Table stickyHeader>
           <TableHead>
@@ -82,37 +66,36 @@ const TableEmployees = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map(item => (
+            {rows?.map(item => (
               <TableRow key={item.id}>
-                <TableCell align='center'>{item.nome}</TableCell>
-                <TableCell align='center'>{item.email}</TableCell>
-                <TableCell align='center'>{item.telefone}</TableCell>
-                <TableCell align='center'>{item.salario}</TableCell>
-                <TableCell align='center'>{item.dataContratacao}</TableCell>
-                <TableCell align='center'>
+                <TableCell align="center">{item.nome}</TableCell>
+                <TableCell align="center">{item.email}</TableCell>
+                <TableCell align="center">{item.telefone}</TableCell>
+                <TableCell align="center">{item.salario}</TableCell>
+                <TableCell align="center">{item.dataContratacao}</TableCell>
+                <TableCell align="center">
                   <>
-                  <IconButton onClick={handleClick}>
-                    <MenuIcon />
-                  </IconButton>
-                  <Menu
-                    anchorEl={visibleButton}
-                    open={Boolean(visibleButton)}
-                    onClose={handleClose}
-                    
-                  >
-                    <MenuItem sx={{gap:2}}>
-                    <ModeIcon/>
-                    Editar dados
-                    </MenuItem>
-                    <MenuItem sx={{gap:2}}>
-                    <VisibilityIcon/>
-                    Mostrar detalhes
-                    </MenuItem>
-                    <MenuItem sx={{gap:2}}>
-                    <DeleteIcon/>
-                    Apagar funcionário
-                    </MenuItem>
-                  </Menu>
+                    <IconButton onClick={handleClick}>
+                      <MenuIcon />
+                    </IconButton>
+                    <Menu
+                      anchorEl={visibleButton}
+                      open={Boolean(visibleButton)}
+                      onClose={handleClose}
+                    >
+                      <MenuItem sx={{ gap: 2 }}>
+                        <ModeIcon />
+                        Editar dados
+                      </MenuItem>
+                      <MenuItem sx={{ gap: 2 }}>
+                        <VisibilityIcon />
+                        Mostrar detalhes
+                      </MenuItem>
+                      <MenuItem sx={{ gap: 2 }}>
+                        <DeleteIcon />
+                        Apagar funcionário
+                      </MenuItem>
+                    </Menu>
                   </>
                 </TableCell>
               </TableRow>

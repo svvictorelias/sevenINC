@@ -1,13 +1,14 @@
-import Header from "./components/header";
-import Home from "./pages/home";
-import './Global.css'
+import Header from './components/header';
+import Home from './pages/home';
+import './Global.css';
+import { MainProvider } from './Provider';
 
 function App() {
   return (
-    <div className="App">
-      <Header/>
-      <Home/>
-    </div>
+    <MainProvider>
+      <Header />
+      <Home />
+    </MainProvider>
   );
 }
 

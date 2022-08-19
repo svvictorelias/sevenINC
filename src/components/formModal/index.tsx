@@ -3,7 +3,10 @@ import * as Yup from 'yup';
 import SendIcon from '@mui/icons-material/Send';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Button, Grid, Modal, Paper, TextField } from '@mui/material';
+import { MainContext } from '../../Provider';
+import { useContext } from 'react';
 const FormModal = ({ open, onClose }) => {
+  const { users,setUsers } = useContext(MainContext);
   const paperStyle = {
     overflow:'auto',
     position: 'absolute',
@@ -36,6 +39,16 @@ const FormModal = ({ open, onClose }) => {
       .required('Campo obrigatório')
   });
   const onSubmit = (values, props) => {
+    const x ={
+      id: 4,
+      nome: 'Victor',
+      email: 'teste@teste.com',
+      telefone: '111111111',
+      salario: 'R$3998.50',
+      dataContratacao: '11/11/2022'}
+    const newData = [...users,x]
+    console.log(newData)
+    // setUsers(newData)
     console.log(values);
     console.log(props);
   };
