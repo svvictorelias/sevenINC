@@ -10,7 +10,7 @@ import ModeIcon from '@mui/icons-material/Mode';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { useContext, useState} from 'react';
-import { MainContext } from '../../Provider';
+import { IUser, MainContext } from '../../Provider';
 import FormModal from '../formModal';
 import InfoModal from '../infoModal';
 
@@ -69,7 +69,7 @@ const TableEmployees = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {users?.map(item => (
+            {users?.map((item:IUser)=> (
               <TableRow key={item.id}>
                 <TableCell align="center">{item.nome}</TableCell>
                 <TableCell align="center">{item.email}</TableCell>

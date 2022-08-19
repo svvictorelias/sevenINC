@@ -5,8 +5,9 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Button, Grid, Modal, Paper, TextField } from '@mui/material';
 import { IUser, MainContext } from '../../Provider';
 import { useContext } from 'react';
+
 const FormModal = ({ label = 'Cadastrar', user, open, onClose }) => {
-  const { users, setUsers } = useContext(MainContext);
+  const { users, setUsers } = useContext<any>(MainContext);
   const paperStyle = {
     overflow: 'auto',
     position: 'absolute',
@@ -46,7 +47,7 @@ const FormModal = ({ label = 'Cadastrar', user, open, onClose }) => {
       .split('-')
       .reverse()
       .join('/');
-    users.map(user => {
+    users.map((user:IUser) => {
       if (user.id >= newID) {
         newID = user.id;
       }
@@ -69,7 +70,7 @@ const FormModal = ({ label = 'Cadastrar', user, open, onClose }) => {
       .split('-')
       .reverse()
       .join('/');
-    const editUserOld = users.filter(oldUser => {
+    const editUserOld = users.filter((oldUser: IUser) => {
       return oldUser.id === user.id;
     });
     const editedUser = 
@@ -82,7 +83,7 @@ const FormModal = ({ label = 'Cadastrar', user, open, onClose }) => {
         dataContratacao
       }
     ;
-    const newData = users.filter(standUser => {
+    const newData = users.filter((standUser:IUser) => {
       return standUser.id !== user.id;
     });
     setUsers([...newData, editedUser]);
