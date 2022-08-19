@@ -47,7 +47,7 @@ const TableEmployees = () => {
 
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-      <FormModal user={userData} open={isOpen} onClose={handleCloseModal}/>
+      <FormModal label='Atualizar' user={userData} open={isOpen} onClose={handleCloseModal}/>
       <TableContainer sx={{ maxHeight: 440 }}>
         <Table stickyHeader>
           <TableHead>
