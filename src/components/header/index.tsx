@@ -12,7 +12,7 @@ const Header = () => {
             target="_blank"
             href="https://www.linkedin.com/in/svvictorelias/"
           >
-            Teste Tecnico - Victor Elias
+            Teste Técnico - Victor Elias
           </Link>
         </Typography>
       </Toolbar>
