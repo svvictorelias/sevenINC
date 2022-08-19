@@ -1,31 +1,23 @@
-import { Box, Toolbar, Typography } from '@mui/material'
-import { Container } from '@mui/system'
-import React from 'react'
-import LogoSeven from '../../assets/images/logoSeven.png'
+import { AppBar, Box, Link, Toolbar, Typography } from '@mui/material';
+import LogoSeven from '../../assets/images/logoSeven.png';
 
 const Header = () => {
   return (
-    <Container sx={{
-      height: 50,
-      width: 1,
-      bgcolor:'red',
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'space-between'
-      }}>
-        <Typography>
-          Teste Tecnico - Victor Elias
+    <AppBar position="relative">
+      <Toolbar sx={{ justifyContent: 'space-between' }}>
+        <img src={LogoSeven} style={{ width: '12rem' }} />
+        <Typography variant="h6">
+          <Link
+            sx={{ textDecoration: 'none', color: 'white' }}
+            target="_blank"
+            href="https://www.linkedin.com/in/svvictorelias/"
+          >
+            Teste Tecnico - Victor Elias
+          </Link>
         </Typography>
-      <Box 
-      component='img'
-        sx={{
-          width: 1/5
-        }}
-       src={LogoSeven} alt="LogoMarca empresa Seven Proteção" />
-    </Container>
-    // <header>
-    // </header>
-  )
-}
+      </Toolbar>
+    </AppBar>
+  );
+};
 
-export default Header
+export default Header;

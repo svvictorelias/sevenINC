@@ -15,9 +15,13 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import { useState } from 'react';
+import FormModal from '../formModal';
 
 const TableEmployees = () => {
+ 
   const [visibleButton, setVisibleButton] = useState<null | HTMLElement>(null);
+
+
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setVisibleButton(event.currentTarget);
@@ -48,8 +52,8 @@ const TableEmployees = () => {
     },
     {
       id: 2,
-      nome: 'Victor',
-      email: 'teste@teste.com',
+      nome: 'Victor Wagner Joseph Elias',
+      email: 'teste@teste.comsasda assadasdasd sad',
       telefone: '111111111',
       salario: 'R$3998.50',
       dataContratacao: '11/11/2022'
@@ -64,7 +68,8 @@ const TableEmployees = () => {
     }
   ];
   return (
-    <Paper sx={{ width: '80%', overflow: 'hidden' }}>
+    <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+      
       <TableContainer sx={{ maxHeight: 440 }}>
         <Table stickyHeader>
           <TableHead>
@@ -79,12 +84,12 @@ const TableEmployees = () => {
           <TableBody>
             {rows.map(item => (
               <TableRow key={item.id}>
-                <TableCell>{item.nome}</TableCell>
-                <TableCell>{item.email}</TableCell>
-                <TableCell>{item.telefone}</TableCell>
-                <TableCell>{item.salario}</TableCell>
-                <TableCell>{item.dataContratacao}</TableCell>
-                <TableCell>
+                <TableCell align='center'>{item.nome}</TableCell>
+                <TableCell align='center'>{item.email}</TableCell>
+                <TableCell align='center'>{item.telefone}</TableCell>
+                <TableCell align='center'>{item.salario}</TableCell>
+                <TableCell align='center'>{item.dataContratacao}</TableCell>
+                <TableCell align='center'>
                   <>
                   <IconButton onClick={handleClick}>
                     <MenuIcon />
