@@ -38,19 +38,26 @@ const FormModal = ({ open, onClose }) => {
       .typeError('Data Invalido')
       .required('Campo obrigatório')
   });
-  const onSubmit = (values, props) => {
-    const x ={
-      id: 4,
-      nome: 'Victor',
-      email: 'teste@teste.com',
-      telefone: '111111111',
-      salario: 'R$3998.50',
-      dataContratacao: '11/11/2022'}
-    const newData = [...users,x]
-    console.log(newData)
-    // setUsers(newData)
-    console.log(values);
-    console.log(props);
+  const onSubmit = (values) => {
+    let newID = 0
+    const dataContratacao = values.dataContratacao.split('-').reverse().join('/')
+    users.map(user=>{
+      if(user.id>=newID){
+        newID = user.id
+      }
+    })
+    newID+=1
+    const newUser ={
+      id: newID,
+      nome: values.nome,
+      email: values.email,
+      telefone: values.telefone,
+      salario: values.salario,
+      dataContratacao}
+    const newData = [...users,newUser]
+    setUsers(newData)
+    onClose()
+  
   };
   return (
     <Modal open={open} onClose={onClose}>
