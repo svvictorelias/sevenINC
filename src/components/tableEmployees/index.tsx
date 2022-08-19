@@ -16,7 +16,7 @@ import InfoModal from '../infoModal';
 
 const TableEmployees = () => {
   const { users, setUsers } = useContext<any>(MainContext);
-  const [userData, setUserData] = useState([])
+  const [userData, setUserData] = useState<IUser|any>([])
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const handleOpenModal = () =>setIsOpen(true)
   const handleCloseModal = () =>setIsOpen(false)
@@ -38,17 +38,17 @@ const TableEmployees = () => {
   ];
 
   //service
-  const handleDelete = (id)=>{
-    const newUsers = users.filter(user=>{
+  const handleDelete = (id:number)=>{
+    const newUsers = users.filter((user: IUser)=>{
       return user.id !==id
     })
     setUsers(newUsers)
   }
-  const handleEdit = (item)=>{
+  const handleEdit = (item:IUser)=>{
     setUserData(item)
     handleOpenModal()
   }
-  const handleShow = (item)=>{
+  const handleShow = (item:IUser)=>{
     setUserData(item)
     handleOpenModalInfo()
   }

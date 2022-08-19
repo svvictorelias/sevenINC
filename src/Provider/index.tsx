@@ -16,23 +16,23 @@ export function MainProvider({children}:any){
       id: 1,
       nome: 'Victor',
       email: 'teste@teste.com',
-      telefone: '111111111',
-      salario: '3998.50',
+      telefone: '31956254871',
+      salario: '3000.50',
       dataContratacao: '11/11/2022'
     },
     {
       id: 2,
       nome: 'Victor Wagner Joseph Elias',
-      email: 'teste@teste.comsasda assadasdasd',
-      telefone: '111111111',
-      salario: '3998.50',
+      email: 'teste@teste.coms',
+      telefone: '31965478521',
+      salario: '4568.50',
       dataContratacao: '11/11/2022'
     },
     {
       id: 3,
       nome: 'Victor',
       email: 'teste@teste.com',
-      telefone: '111111111',
+      telefone: '3136521547',
       salario: '3998.50',
       dataContratacao: '11/11/2022'
     }

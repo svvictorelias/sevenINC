@@ -41,7 +41,7 @@ const FormModal = ({ label = 'Cadastrar', user, open, onClose }) => {
       .typeError('Data Invalido')
       .required('Campo obrigatório')
   });
-  const handleRegister = values => {
+  const handleRegister = (values:IUser) => {
     let newID = 0;
     const dataContratacao = values.dataContratacao
       .split('-')
@@ -65,7 +65,7 @@ const FormModal = ({ label = 'Cadastrar', user, open, onClose }) => {
     setUsers(newData);
   };
 
-  const handleEdit = values => {
+  const handleEdit = (values:IUser) => {
     const dataContratacao = values.dataContratacao
       .split('-')
       .reverse()
@@ -89,7 +89,7 @@ const FormModal = ({ label = 'Cadastrar', user, open, onClose }) => {
     setUsers([...newData, editedUser]);
    
   };
-  const onSubmit = values => {
+  const onSubmit = (values:IUser) => {
     if (label === 'Cadastrar') {
       handleRegister(values);
     } else {
