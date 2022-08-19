@@ -10,13 +10,13 @@ interface IForm{
   label?: string,
   user?: IUser,
   open: boolean,
-  onClose: Function
+  onClose: ()=>void
 }
 
 
 const FormModal = ({ label = 'Cadastrar', user, open, onClose }:IForm) => {
   const { users, setUsers } = useContext<any>(MainContext);
-  const paperStyle = {
+  const paperStyle: any = {
     overflow: 'auto',
     position: 'absolute',
     top: '50%',
@@ -50,13 +50,13 @@ const FormModal = ({ label = 'Cadastrar', user, open, onClose }:IForm) => {
       .required('Campo obrigatório')
   });
   const handleRegister = (values:IUser) => {
-    let newID = 0;
+    let newID: number | string | undefined = 0;
     const dataContratacao = values.dataContratacao
       .split('-')
       .reverse()
       .join('/');
     users.map((user:IUser) => {
-      if (user.id >= newID) {
+      if (user?.id >= newID) {
         newID = user.id;
       }
     });
@@ -79,7 +79,7 @@ const FormModal = ({ label = 'Cadastrar', user, open, onClose }:IForm) => {
       .reverse()
       .join('/');
     const editUserOld = users.filter((oldUser: IUser) => {
-      return oldUser.id === user.id;
+      return oldUser.id === user?.id;
     });
     const editedUser = 
       {
@@ -92,7 +92,7 @@ const FormModal = ({ label = 'Cadastrar', user, open, onClose }:IForm) => {
       }
     ;
     const newData = users.filter((standUser:IUser) => {
-      return standUser.id !== user.id;
+      return standUser.id !== user?.id;
     });
     setUsers([...newData, editedUser]);
    

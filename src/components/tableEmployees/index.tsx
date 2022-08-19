@@ -38,7 +38,7 @@ const TableEmployees = () => {
   ];
 
   //service
-  const handleDelete = (id:number)=>{
+  const handleDelete = (id:number|undefined)=>{
     const newUsers = users.filter((user: IUser)=>{
       return user.id !==id
     })
@@ -90,7 +90,7 @@ const TableEmployees = () => {
                     Exibir
                   </MenuItem>
                   <MenuItem
-                  onClick={()=>handleDelete(item.id)}
+                  onClick={()=>handleDelete(item?.id)}
                    sx={{ gap:1, display:'flex', justifyContent:'center' }}>
                     <DeleteIcon />
                     Apagar

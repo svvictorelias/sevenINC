@@ -5,11 +5,11 @@ import { IUser } from '../../Provider';
 interface IInfo{
   user: IUser,
   openInfo: boolean,
-  onCloseInfo: Function
+  onCloseInfo: ()=>void
 }
 
 const InfoModal = ({ user, openInfo, onCloseInfo }:IInfo) => {
-  const paperStyle = {
+  const paperStyle: any = {
     
     position: 'absolute',
     top: '50%',
