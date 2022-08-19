@@ -10,10 +10,10 @@ const Employees = () => {
   return (
     <div style={{width:'100%'}}>
       <FormModal open={isOpen} onClose={handleCloseModal}/>
-      <Box sx={{display:'flex', margin:'64px 15%'}}>
+      <Box sx={{display:'flex', margin:'24px 15%'}}>
         <Button sx={{width:'140px', height:'45px'}} variant="contained" onClick={handleOpenModal}>Adicionar +</Button>
       </Box>
-      <Box sx={{display:'flex', margin:'64px 15%'}}>
+      <Box sx={{display:'flex', margin:'24px 15%'}}>
           <TableEmployees/>
         </Box>
     </div>
