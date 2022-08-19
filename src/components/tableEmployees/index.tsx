@@ -9,11 +9,16 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import ModeIcon from '@mui/icons-material/Mode';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { useContext} from 'react';
+import { useContext, useState} from 'react';
 import { MainContext } from '../../Provider';
+import FormModal from '../formModal';
 
 const TableEmployees = () => {
   const { users, setUsers } = useContext(MainContext);
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [userData, setUserData] = useState([])
+  const handleOpenModal = () =>setIsOpen(true)
+  const handleCloseModal = () =>setIsOpen(false)
 
   const columns = [
     { id: 'nome', label: 'Nome', minWidth: 150 },
@@ -35,9 +40,14 @@ const TableEmployees = () => {
     })
     setUsers(newUsers)
   }
+  const handleEdit = (item)=>{
+    setUserData(item)
+    handleOpenModal()
+  }
 
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+      <FormModal user={userData} open={isOpen} onClose={handleCloseModal}/>
       <TableContainer sx={{ maxHeight: 440 }}>
         <Table stickyHeader>
           <TableHead>
@@ -58,7 +68,9 @@ const TableEmployees = () => {
                 <TableCell align="center">{item.salario}</TableCell>
                 <TableCell align="center">{item.dataContratacao}</TableCell>
                 <TableCell align="center">
-                  <MenuItem sx={{ gap:1, display:'flex', justifyContent:'center' }}>
+                  <MenuItem 
+                  onClick={()=>handleEdit(item)}
+                  sx={{ gap:1, display:'flex', justifyContent:'center' }}>
                     <ModeIcon />
                     Editar
                   </MenuItem>

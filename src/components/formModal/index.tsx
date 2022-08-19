@@ -5,8 +5,9 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Button, Grid, Modal, Paper, TextField } from '@mui/material';
 import { MainContext } from '../../Provider';
 import { useContext } from 'react';
-const FormModal = ({ open, onClose }) => {
+const FormModal = ({ user, open, onClose }) => {
   const { users,setUsers } = useContext(MainContext);
+  console.log(user)
   const paperStyle = {
     overflow:'auto',
     position: 'absolute',
@@ -19,11 +20,11 @@ const FormModal = ({ open, onClose }) => {
     boxShadow: '4px 4px 4px #22305A05',
   };
   const initialValues = {
-    nome: '',
-    email: '',
-    telefone: '',
-    salario: '',
-    dataContratacao: ''
+    nome: user?.nome? user.nome: '',
+    email:user?.email? user.email: '',
+    telefone: user?.telefone? user.telefone: '',
+    salario: user?.salario? user.salario: '',
+    dataContratacao: user?.dataContratacao? user.dataContratacao.split('/').reverse().join('-'): ''
   };
   const validationSchema = Yup.object().shape({
     nome: Yup.string().min(3, 'Minimo 3 letras').required('Campo obrigatório'),

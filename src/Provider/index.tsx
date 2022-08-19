@@ -9,7 +9,7 @@ export function MainProvider({children}:any){
       nome: 'Victor',
       email: 'teste@teste.com',
       telefone: '111111111',
-      salario: 'R$3998.50',
+      salario: '3998.50',
       dataContratacao: '11/11/2022'
     },
     {
@@ -17,7 +17,7 @@ export function MainProvider({children}:any){
       nome: 'Victor Wagner Joseph Elias',
       email: 'teste@teste.comsasda assadasdasd',
       telefone: '111111111',
-      salario: 'R$3998.50',
+      salario: '3998.50',
       dataContratacao: '11/11/2022'
     },
     {
@@ -25,7 +25,7 @@ export function MainProvider({children}:any){
       nome: 'Victor',
       email: 'teste@teste.com',
       telefone: '111111111',
-      salario: 'R$3998.50',
+      salario: '3998.50',
       dataContratacao: '11/11/2022'
     }
   ])
