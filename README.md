@@ -43,6 +43,10 @@ Caso esteja utilizando a porta *5173*, verifique no terminal a porta da aplicaç
 - Exibir usuário
 - Deletar usuário
 
+### `Deploy`
+Foi utilizado o Deploy através do netlify, com valores pre-definidos para melhor comodidade de testes usuais, assim como todas as funcionalidades.\
+Abra [este link](https://6303813d53fd3f1087379cb8--starlit-cascaron-3c2df8.netlify.app/) para ver em seu navegador.
+
 
 ### `Considerações`
 Visto o tempo curto, esse projeto foi desenvolvido visando principalmente todas as funcionalidades propostas, assim como a experiência do usuário que irá utiliza-la.
